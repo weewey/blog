@@ -1,0 +1,7 @@
+baseURL: "https://yewwee.com"
+languageCode: "en-us"
+title: "Yew Wee"
+theme: 'novela'
+taxonomies:
+  author: Yew Wee
+enableEmoji: true
