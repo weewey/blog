@@ -11,4 +11,4 @@ Hello, there. I'm Yew Wee. :smile:
 
 I am a full-time software developer and part-time marathon runner.
 
-You can learn more about me [here](http://localhost:1313/about/) 
+You can learn more about me [here](http://www.yewwee.com/about) 

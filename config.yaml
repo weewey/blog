@@ -1,7 +1,25 @@
-baseURL: "https://yewwee.com"
+baseURL: "https://www.yewwee.com"
 languageCode: "en-us"
 title: "Yew Wee"
 theme: 'novela'
 taxonomies:
   author: Yew Wee
 enableEmoji: true
+
+deployment:
+  order:
+    - ".jpg$"
+    - ".png$"
+    - ".gif$"
+    - ".css$"
+    - ".js$"
+  targets:
+    - name: "gcs"
+      URL: "gs://www.yewwee.com"
+  matchers:
+    - pattern: ^.+\.(js|css|svg|ttf)$
+      gzip: true
+    - pattern: ^.+\.(png|jpg)$
+      gzip: false
+    - pattern: ^.+\.(html|xml|json)$
+      gzip: true
