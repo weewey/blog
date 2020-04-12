@@ -3,11 +3,15 @@
 <section class="section narrow">
 
     {{ partial "page/hero.html" . }}
+    {{ partial "article/progress" . }}
 
-    <article  id="defaultContent" class="default-content">
+    <article id="articleContent" class="post-content" style="position:relative;">
         {{ .Content }}
     </article>
 
 </section>
+
+{{ $script := resources.Get "js/progressBar.js" }}
+<script src="{{ $script.RelPermalink }}"></script>
 
 {{ end }}

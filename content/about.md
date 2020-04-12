@@ -1,8 +1,8 @@
 ---
 date: "2020-02-25"
 title: About
+hero: "/images/yew_wee.jpg"
 ---
-![Yew Wee](/images/yew_wee.jpg)
 
 Hello, there. I'm Yew Wee. I am a full-time software developer and part-time marathon runner.
 

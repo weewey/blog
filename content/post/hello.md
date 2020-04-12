@@ -3,8 +3,8 @@ title: Hello
 date: 2019-03-05
 hero: "/images/hero-11.jpg"
 excerpt: Introduction about me
-authors:
-  - Yew Wee
+enableProgressBar: true
+enableHeroImage: true
 ---
 
 Hello, there. I'm Yew Wee. :smile: 

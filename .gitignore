@@ -1,1 +1,4 @@
-.idea
+.idea/
+public/
+resources/
+config.yaml

@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+<section class="section narrow">
+
+    {{ partial "article/hero.html" . }}
+
+    {{ if .Params.enableProgressBar }}
+        {{ partial "article/progress" . }}
+    {{ end }}
+
+
+    <article  id="articleContent" class="post-content" style="position:relative;">
+        {{ .Content }}
+
+        {{ template "_internal/disqus.html" . }}
+
+    </article>
+
+    {{ partial "article/next.html" . }}
+</section>
+
+{{ if .Params.enableProgressBar }}
+    {{ $script := resources.Get "js/progressBar.js" }}
+     <script src="{{ $script.RelPermalink }}"></script>
+    {{ end }}
+{{ end }}

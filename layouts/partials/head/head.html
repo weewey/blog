@@ -5,14 +5,40 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
     {{ $style := resources.Get "scss/global.scss" | toCSS | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
     {{ $prism := resources.Get "css/prism.css" }}
     <link rel="stylesheet" href="{{ $prism.RelPermalink }}" />
+    {{ $jquery := resources.Get "js/jquery-3.5.0.min.js" }}
+    <script src="{{ $jquery.RelPermalink }}"></script>
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
     {{ partial "seo/print.html" . }}
     {{ with .Params.forestry_instant_preview_id }}
       {{- safeHTML (printf "<meta property='forestry_instant_preview_id' content='%s'>" .) -}}
     {{ end -}}
+    {{ if .Params.includeLeaflet }}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+        {{ $heatmap := resources.Get "js/heatmap.min.js" }}
+        {{ $leafletHeatmap := resources.Get "js/leaflet-heatmap.js" }}
+    <script src="{{ $heatmap.RelPermalink }}"></script>
+    <script src="{{ $leafletHeatmap.RelPermalink }}"></script>
+    {{ end }}
+    {{ with .Params.js }}
+        {{ range . }}
+            {{ $js := resources.Get . }}
+            <script src="{{ $js.RelPermalink }}"></script>
+        {{ end }}
+    {{ end }}
+    {{ with .Params.css }}
+        {{ range . }}
+            {{ $css := resources.Get . }}
+        <link rel="stylesheet" href="{{ $css.RelPermalink }}" />
+        {{ end }}
+    {{ end }}
+    {{ template "_internal/google_analytics.html" . }}
 </head>

@@ -1,0 +1,17 @@
+.legend {
+    padding: 6px 8px;
+    font: 12px Arial, Helvetica, sans-serif;
+    background: dodgerblue;
+    line-height: 18px;
+    color: #555;
+}
+
+.legend span {
+    position: relative;
+    bottom: 2px;
+}
+
+th {
+    text-align: center;
+    height: 50px;
+}
